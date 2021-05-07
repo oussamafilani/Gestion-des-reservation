@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+
+    <!-- CSS Style -->
+    <!-- <link rel="stylesheet" href="../css/" /> -->
+
+    <style>
+      .child {
+        display: none;
+      }
+
+      /* .vue_type {
+        display: none;
+      } */
+    </style>
+
+    <title>Hello, world!</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let scriptEl = document.createElement("script");
+        scriptEl.setAttribute("src", "./maintest.js");
+        document.body.appendChild(scriptEl);
+      });
+    </script>
+
+    <!-- <script src="maintest.js" defer></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <form method="get">
+        <div class="reseverSelectNode">
+          <input type="checkbox" id="appt" name="" value="apparts" class="" />
+          <label for="appt">appartement</label><br />
+          <input type="checkbox" id="bang" name="" value="bungalow" class="" />
+          <label for="bang">bungalow</label><br />
+          <input
+            type="checkbox"
+            id="hotel"
+            name=""
+            value="chambre"
+            class="bk-selector"
+          />
+          <label for="hotel">hotel</label>
+
+          <!-- <label
+            >Choose a Bein:
+            <select name="bien" class="bien bk-selector form-control">
+              <option value="">--select one--</option>
+              <option value="chambre">chambre</option>
+              <option value="apparts">apparts</option>
+              <option value="bungalow">bungalow</option>
+            </select>
+          </label> -->
+
+          <div class="chambre_type"></div>
+          <div class="bed_type"></div>
+          <div class="vue_type"></div>
+        </div>
+
+        <div class="child">
+          <p>Number of child :</p>
+          <input
+            style="width: 140px"
+            type="number"
+            min="0"
+            max="6"
+            id="nbchild"
+            class="form-control"
+          />
+          <div class="children"></div>
+        </div>
+        <!-- <button type="button" id="addchild" class="btn btn-primary btn-sm">
+          add child
+        </button> -->
+        <br />
+        <button type="button" id="reserve" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!-- hhhhhhhhhhhhhhh -->
+
+    <!-- hhhhhhhhhhhhhhhhh -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Main Js -->
+    <!-- <script src="maintest.js"></script> -->
+  </body>
+</html>

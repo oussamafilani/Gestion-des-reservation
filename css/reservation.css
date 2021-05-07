@@ -1,0 +1,90 @@
+body {
+  background-color: #242124;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 10% auto;
+  border: solid 1px #dbdad7;
+  width: 60%;
+  border-radius: 10px;
+  padding-left: 10px !important;
+  padding-bottom: 10px !important;
+  padding-right: 10px !important;
+  padding-top: 0px !important;
+}
+
+.card-title {
+  margin: auto;
+  padding: 15px;
+  background-color: #ff7300;
+  color: black;
+  width: 80%;
+}
+
+.card-body {
+  padding: 0px;
+}
+
+.custom-select {
+  width: 100%;
+}
+
+.btn2 {
+  margin-left: 10%;
+}
+
+input {
+  outline: 0 !important;
+  border-width: 0 0 2px !important;
+  border-color: #d1d1cf !important;
+}
+
+input:focus {
+  border-color: #d1d1cf !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.add-bien-icon {
+  cursor: pointer;
+  color: black;
+}
+
+.radiobtn {
+  margin-left: 3.5%;
+}
+
+.child {
+  display: none;
+}
+
+.empty-selector {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin: auto;
+    border: solid 1px #dbdad7;
+    width: 90%;
+    padding-left: 10px !important;
+    padding-bottom: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 0px !important;
+  }
+
+  .fa {
+    border-radius: 25px;
+    width: 15%;
+    margin-left: 5%;
+    border: solid 2px #dbdad7;
+    margin-top: 5%;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=reservation.css.map */
