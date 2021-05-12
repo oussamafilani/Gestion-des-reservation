@@ -132,7 +132,7 @@ nbchild.addEventListener('input', () => {
 
             
             <div class=" mb-3 col-sm-4 text-center">
-            <button type="button"  id="delenf${i}" class="btn btn-danger btn-sm mb-4">suppreimer</button>
+            <img src="./assets/icons/remove.svg" alt="" id="delenf${i}" class="ico del--ico" />
             </div>
             `
     }
@@ -183,9 +183,9 @@ document.addEventListener("input", function(e) {
 })
 
 function chunkArray(myArray, chunk_size) {
-    var index = 0;
-    var arrayLength = myArray.length;
-    var tempArray = [];
+    let index = 0;
+    let arrayLength = myArray.length;
+    let tempArray = [];
 
     for (index = 0; index < arrayLength; index += chunk_size) {
         myChunk = myArray.slice(index, index + chunk_size);
@@ -264,3 +264,48 @@ reserve.addEventListener("click", function() {
         }
     })
 })
+
+let addAppartement = true
+let removeAppartement = true
+
+let k = 0;
+const addAppr = document.querySelector(".add-appr")
+const dellAppr = document.querySelector(".dell-appr")
+const appartsCount = document.querySelector(".apparts-count")
+const newAppartement = document.querySelector(".add-apparts")
+
+appartsCount.innerHTML = `${k}`
+
+addAppr.addEventListener('click', function() {if(k<4) {
+    appartsCount.innerHTML = `${++k}`
+    newAppartement.innerHTML += `<input type="hidden" id="apprt${k}" name="one_apprt${k}" value="1">`
+}})
+dellAppr.addEventListener('click', ()=> {
+    if(k>0) {
+    // document.getElementById(`one_apprt${k}`).outerHTML = ""
+    // document.getElementById(`one_apprt${k}`).remove()
+    newAppartement.removeChild(newAppartement.childNodes[0])
+    appartsCount.innerHTML = `${--k}`
+}})
+
+
+let addBungalow = true
+let removeBungalow = true
+let l = 0;
+const addBang = document.querySelector(".add-bang")
+const dellBang = document.querySelector(".dell-bang")
+const bangCount = document.querySelector(".bang-count")
+const newBungalow = document.querySelector(".add-bung")
+bangCount.innerHTML = `${l}`
+
+addBang.addEventListener('click', function() {
+    if(l<4) {
+    bangCount.innerHTML = `${++l}`
+    newBungalow.innerHTML += `<input type="hidden" id="bung${l}" name="one_bung${l}" value="2">`
+}})
+dellBang.addEventListener('click', ()=> {
+    newBungalow.removeChild(newBungalow.childNodes[0])
+    if(l>0) {bangCount.innerHTML = `${--l}`
+}})
+
+

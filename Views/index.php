@@ -2,179 +2,64 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- font awesome -->
-  <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" />
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
-
-  <!-- CSS Style -->
-  <link rel="stylesheet" href="../css/style.css" />
-
-  <title>Hello, world!</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Home - Hotel</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+  <!-- Third party plugin CSS-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <!-- CSS Footer -->
+  <link href="css/footer.css" rel="stylesheet" />
 </head>
 
-<body>
-  <div class="">
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom">
-        <a class="navbar-brand" href="#">Hotel</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-          </ul>
-          <!-- <form class="form-inline my-2 my-lg-0"> -->
-          <a type="button" class="btn center-block btn-light mr-sm-2" href="register.php">
-            Sign Up
-          </a>
+<body id="page-top">
 
-          <a type="button" class="btn center-block btn-light my-2 my-sm-0" href="login.php">
-            Login
-          </a>
-          <!-- </form> -->
+  <!-- Navigation-->
+  <?php include_once '../includes/nav.include.php'; ?>
+
+  <!-- Masthead-->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h1 class="text-uppercase text-white font-weight-bold">
+            Find the best hotels for your next trip
+
+          </h1>
+          <hr class="divider my-4" />
         </div>
-      </nav>
-    </header>
-
-    <section class="header-container"></section>
-
-    <div class="header__text-box">
-      <h1 class="heading-primary">
-        <span class="heading-primary--main">Outdoors</span>
-        <span class="heading-primary--sub">is where life happens</span>
-      </h1>
-    </div>
-
-
-
-    <!-- footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 footer-column">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <span class="footer-title">Product</span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Product 1</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Product 2</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Plans & Prices</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Frequently asked questions</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 footer-column">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <span class="footer-title">Company</span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Job postings</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">News and articles</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 footer-column">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <span class="footer-title">Contact & Support</span>
-              </li>
-              <li class="nav-item">
-                <span class="nav-link"><i class="fas fa-phone"></i>+47 45 80 80 80</span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-comments"></i>Live chat</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-envelope"></i>Contact us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-star"></i>Give feedback</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="text-center"><i class="fas fa-ellipsis-h"></i></div>
-
-        <div class="row text-center">
-          <div class="col-md-4 box">
-            <span class="copyright quick-links">Copyright &copy; Your Website <script>
-                document.write(new Date().getFullYear())
-              </script>
-            </span>
-          </div>
-          <div class="col-md-4 box">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 box">
-            <ul class="list-inline quick-links">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5">
+            For most travel planning, the best overall strategy is to compare prices from multiple sources including the hotel’s own website!
+          </p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
         </div>
       </div>
-    </footer>
+    </div>
+  </header>
 
-    <!-- jQuery -->
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- <script src="../js/bootstrap.bundle.min.js"></script> -->
-    <!-- Main Js -->
-    <script src="../js/main.js"></script>
+  <!-- footer -->
+
+  <?php include_once '../includes/footer.include.php'; ?>
+
+  <!-- Bootstrap core JS-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/nav.js"></script>
 </body>
 
 </html>

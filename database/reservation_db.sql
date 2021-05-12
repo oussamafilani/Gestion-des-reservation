@@ -235,7 +235,7 @@ ALTER TABLE `client`
 ALTER TABLE `panier`
   ADD CONSTRAINT `FK_bien_pa` FOREIGN KEY (`fk_bien`) REFERENCES `bien` (`id_Bien`),
   ADD CONSTRAINT `FK_pension_pa` FOREIGN KEY (`fk_pension`) REFERENCES `pension` (`id_pension`),
-  ADD CONSTRAINT `FK_reservation_pa` FOREIGN KEY (`fk_reservation`) REFERENCES `reservation` (`id_reservation`);
+  ADD CONSTRAINT `FK_reservation_pa` FOREIGN KEY (`fk_reservation`) REFERENCES `reservation` (`id_reservation`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `reservation`

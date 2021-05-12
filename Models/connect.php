@@ -6,7 +6,7 @@ class connect
     private $username = "root";
     private $password;
     private $db = "reservation_db";
-    public $conn;
+    private $conn;
 
     public function __construct()
     {

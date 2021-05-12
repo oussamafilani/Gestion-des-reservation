@@ -60,7 +60,7 @@
 <body>
     <div class="row m-0 h-100">
         <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
-            <img src="login.svg" class="w-100" />
+            <img src="./assets/img/login.svg" class="w-100" />
         </div>
         <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
             <?php
@@ -70,8 +70,6 @@
             // $insert = $model->insert();
 
             include '../Controllers/register.php';
-            $user = new Register();
-            $user->Register();
 
             ?>
             <form class="w-75" action="" method="post">

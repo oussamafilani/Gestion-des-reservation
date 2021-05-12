@@ -6,6 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    function ErrPasswrdEmail() {
+      swal({
+        title: "Oops...",
+        text: "l'email ou le mot de passe n'est pas correct",
+        icon: "error",
+      });
+    }
+  </script>
+
   <title>Bootstrap 5 Login Form</title>
   <style>
     body {
@@ -59,18 +71,12 @@
 <body>
   <div class="row m-0 h-100">
     <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
-      <img src="login.svg" class="w-100" />
+      <img src="./assets/img/login.svg" class="w-100" />
     </div>
     <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
       <?php
-
-      // include '../model/model.php';
-      // $model = new Model();
-      // $insert = $model->insert();
-
       include '../Controllers/login.php';
-      $user = new Login();
-      $user->Autonfication();
+      // Password123@
 
       ?>
       <form class="w-75" action="" method="post">
@@ -99,5 +105,15 @@
     </div>
   </div>
 </body>
+
+<script>
+  function ErrPasswrdEmail() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+    });
+  }
+</script>
 
 </html>

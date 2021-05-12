@@ -7,20 +7,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
-  <!-- CSS Style -->
-  <link rel="stylesheet" href="../css/" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+
+  <!-- CSS Footer -->
+  <link href="css/footer.css" rel="stylesheet" />
 
   <title>Hello, world!</title>
 </head>
 
 <body>
 
-  <!-- start admin  -->
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark  bg-dark  py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Boking Hotel</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+          <!-- <li class="nav-item">
+            <button type="button" id="" class="btn  btn-primary">login</button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <!-- start record  -->
+  <!-- start admin  -->
   <div class="container">
 
     <div class="row">
@@ -47,8 +78,7 @@
             <?php
 
             include '../Controllers/reservation.php';
-            $reservation = new Reservation();
-            $rows = $reservation->fetchReservation();
+
 
             $i = 1;
             if (!empty($rows)) {
@@ -81,13 +111,27 @@
     </div>
   </div>
 
+  <!-- Small modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit, voluptas maiores temporibus nesciunt, unde illum inventore adipisci exercitationem beatae ab cumque illo, commodi eos animi sed quod! Perspiciatis, ducimus!
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- footer -->
+  <?php include_once '../includes/footer.include.php'; ?>
 
   <!-- jQuery -->
-  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="./js/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap -->
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
   <!-- Main Js -->
-  <script src="../js/main.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
