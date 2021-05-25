@@ -3,7 +3,6 @@
 
 include '../Models/user_model.php';
 
-$register = new User_model();
 
 if (isset($_POST['register'])) {
     $email = trim($_POST['user']);
@@ -14,6 +13,7 @@ if (isset($_POST['register'])) {
     $lname = ucfirst(strtolower(trim($_POST['lname'])));
     $phone = trim($_POST['phone']);
 
+    $register = new User_model();
     $register->Register($email, $password, $access, $fname, $lname, $phone);
 
     header("Location: login.php");

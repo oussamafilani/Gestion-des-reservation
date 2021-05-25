@@ -1,27 +1,28 @@
-const branche = {
-    ch_simple_vue_int: ['chambre_simple', 'empty', 'vue_intern'],
-    ch_simple_vue_ext: ['chambre_simple', 'empty', 'vue_extern'],
-    ch_double_lit_double_int: ['chambre_double', 'lit_double', 'vue_intern'],
-    ch_double_lit_double_ext: ['chambre_double', 'lit_double', 'vue_extern'],
-    ch_double_2lit_int: ['chambre_double', 'deux_lit_simple', 'vue_intern'],
-};
+'use strict'
 
-
-const addchambre = document.querySelector('#addchambre')
 const chambre_type = document.querySelector('.add-bien')
-let i = 1;
+
+const dellchambre = document.querySelector('.dell-chambre')
+const addchambre = document.querySelector('.add-chambre')
+const chambreCount = document.querySelector(".chambre-count")
+
+const oneRoom = document.querySelector(".one-room")
+
+let [i, j] = [1, 0]
+
+chambreCount.innerHTML = `${j}`
 
 addchambre.addEventListener('click', function() {
 
     document.querySelector('.child').style.display = 'inline-block'
-
+    if(j<4) {
     chambre_type.innerHTML +=
 
         ` 
+        <div class="one-room row">
         <div class="chambre_type${i} col-sm-4">
 
-            <input type="hidden" id="one_room${i-1}" name="room${i}" value="">
-            <select name="chambre_type" id="chambre_type${i}" class="bk-selector form-control  mb-4">
+            <select name="bien_type[${i}][chambre]" id="chambre_type${i}" class=" form-control  mb-4">
                      <option value="">sélectionner une chambre </option>
                     <option value="chambre_simple">chambre simple</option>
                     <option value="chambre_double">chambre double</option>
@@ -29,11 +30,25 @@ addchambre.addEventListener('click', function() {
         </div>
         <div class="bed_type${i} col-sm-4"></div>
         <div class="vue_type${i} col-sm-4"></div> 
-        <div class="pen_type${i} col-sm-12 mb-4"></div> 
+        <div class="pen_type${i} col-sm-9 mb-4"></div> 
+        </div>
+
+        
         `
+        chambreCount.innerHTML = `${++j}`
+ 
     i++
+    
+    }
 })
 
+dellchambre.addEventListener('click', function() {
+    if(j>0) {
+        chambreCount.innerHTML = `${--j}`
+        document.querySelector(".one-room").remove()
+    }
+
+}) 
 
 document.addEventListener('change', (e) => {
 
@@ -43,11 +58,7 @@ document.addEventListener('change', (e) => {
             document.querySelector(`.pen_type${j}`).innerHTML = ``
             document.querySelector(`.bed_type${j}`).innerHTML = `
 
-            <select selected class="bk-selector empty-selector">
-            <option value="empty"></option>
-            </select>
-
-            <select name="vue" id="typevue${j}"  class="bk-selector form-control">
+            <select name="bien_type[${j}][vue]" id="typevue${j}"  class=" form-control">
             <option value="">sélectionner une vue </option>
             <option value="vue_intern">vue intérieure</option>
             <option value="vue_extern">vue extérieure</option>
@@ -55,7 +66,7 @@ document.addEventListener('change', (e) => {
         `
 
             document.querySelector(`.pen_type${j}`).innerHTML = `
-            <select name="vue" id="pentype${j}"  class="pn-selector form-control">
+            <select name="bien_type[${j}][pension]" id="pentype${j}"  class="form-control">
             <option value="1">Pension complète</option>
             <option value="2">Demi-pension</option>
             <option value="3">Sans</option>
@@ -66,7 +77,7 @@ document.addEventListener('change', (e) => {
             document.querySelector(`.vue_type${j}`).innerHTML = ``
             document.querySelector(`.vue_type${j}`).innerHTML = ``
             document.querySelector(`.bed_type${j}`).innerHTML = `
-            <select name="bed" id="typelit${j}" class="bk-selector form-control">
+            <select name="bien_type[${j}][bed]" id="typelit${j}" class=" form-control">
             <option value="">sélectionner un lit </option>
             <option value="lit_double">lit double</option>
             <option value="deux_lit_simple">2 lit simple</option>
@@ -74,7 +85,7 @@ document.addEventListener('change', (e) => {
 
         `
             document.querySelector(`.pen_type${j}`).innerHTML = `
-            <select name="vue" id="pentype${j}"  class="pn-selector form-control">
+            <select name="bien_type[${j}][pension]" id="pentype${j}"  class="form-control">
             <option value="1">Pension complète</option>
             <option value="2">Demi-pension</option>
             <option value="3">Sans</option>
@@ -89,7 +100,7 @@ document.addEventListener('change', (e) => {
         if (e.target.id == `typelit${j}` && e.target.value == 'lit_double') {
             document.querySelector(`.vue_type${j}`).innerHTML = ``
             document.querySelector(`.vue_type${j}`).innerHTML = `  
-            <select name="vue" id="typevue${j}"  class="bk-selector form-control">
+            <select name="bien_type[${j}][vue]" id="typevue${j}"  class=" form-control">
             <option value="">sélectionner une vue </option>
             <option value="vue_intern">vue intérieure</option>
             <option value="vue_extern">vue extérieure</option>
@@ -100,7 +111,7 @@ document.addEventListener('change', (e) => {
         if (e.target.id == `typelit${j}` && e.target.value == 'deux_lit_simple') {
             document.querySelector(`.vue_type${j}`).innerHTML = ``
             document.querySelector(`.vue_type${j}`).innerHTML = `
-            <select name="vue" id="typevue${j}"  class="bk-selector form-control">
+            <select name="bien_type[${j}][vue]" id="typevue${j}"  class=" form-control">
             <option value="">sélectionner une vue </option>
             <option value="vue_intern">vue intérieure</option>
             </select>
@@ -116,9 +127,11 @@ const nbchild = document.querySelector('#nbchild')
 nbchild.addEventListener('input', () => {
     document.querySelector('.children').innerHTML = ''
     for (let i = 1; i <= nbchild.value; i++) {
+        if(nbchild.value<=6){
         document.querySelector(".children").innerHTML +=
 
             `
+            <div class="row">
 
             <div class="mb-3 col-sm-4">
             <input placeholder = "age enfant ${i}"  type="number"
@@ -132,9 +145,12 @@ nbchild.addEventListener('input', () => {
 
             
             <div class=" mb-3 col-sm-4 text-center">
-            <img src="./assets/icons/remove.svg" alt="" id="delenf${i}" class="ico del--ico" />
+            <img src="./assets/icons/remove.svg" alt="" id="delenf${i}" class="ico del--ico" onclick="delloneKid(this)"/>
+            </div>
+
             </div>
             `
+        }
     }
 })
 
@@ -149,7 +165,7 @@ document.addEventListener("input", function(e) {
             document.querySelector(`#enf-lit${i}`).innerHTML =
 
                 `
-            <select name="one_kid${i}" id=""  class="enf-option form-control">
+            <select name="bien_type[${i}][kid]" id=""  class="enf-option form-control">
             <option value="8">lit supplémentaire</option>
             <option value="9">pas lit supplémentaire</option>
             </select>
@@ -160,7 +176,7 @@ document.addEventListener("input", function(e) {
             document.querySelector(`#enf-lit${i}`).innerHTML =
 
                 `
-            <select name="one_kid${i}" id=""  class="enf-option form-control">
+            <select name="bien_type[${i}][kid]" id=""  class="enf-option form-control">
             <option value="10">50% chambre simple</option>
             </select>
 
@@ -171,7 +187,7 @@ document.addEventListener("input", function(e) {
             document.querySelector(`#enf-lit${i}`).innerHTML =
 
                 `
-            <select name="one_kid${i}" id=""  class="enf-option form-control">
+            <select name="bien_type[${i}][kid]" id=""  class="enf-option form-control">
             <option value="12">chambre simple separeé</option>
             <option value="11">70% chambre simple</option>
             </select>
@@ -182,88 +198,11 @@ document.addEventListener("input", function(e) {
 
 })
 
-function chunkArray(myArray, chunk_size) {
-    let index = 0;
-    let arrayLength = myArray.length;
-    let tempArray = [];
-
-    for (index = 0; index < arrayLength; index += chunk_size) {
-        myChunk = myArray.slice(index, index + chunk_size);
-        // Do something if you want with the group
-        tempArray.push(myChunk);
+//rmove one kid
+let  delloneKid = (e)=> {
+    e.parentElement.parentElement.remove()
+    nbchild.value-- 
     }
-
-    return tempArray;
-}
-
-const reserve = document.querySelector('#reserve')
-reserve.addEventListener("click", function() {
-
-    let pen = Array.from(document.querySelectorAll(".pn-selector"));
-    let singlePension = []
-    pen.forEach(function(item, index) {
-        singlePension[index] = item.value
-    });
-
-    console.log(singlePension)
-
-    // *********************
-    let sel = document.querySelectorAll('.bk-selector')
-    let arr = Array.from(sel)
-    let noderesult = []
-    let singleBranch = []
-
-    arr.forEach(function(item, index) {
-        noderesult[index] = item.value
-    })
-
-    console.log(noderesult)
-    singleBranch = chunkArray(noderesult, 3)
-
-    console.log(singleBranch)
-    let rooms_numbre = singleBranch.length
-
-    document.querySelector(`#rooms_number`).value = rooms_numbre
-
-    singleBranch.forEach(function(item, index) {
-
-        let result = []
-        let singelChambre = Array(item);
-        let onepension = singlePension[index];
-        result = singelChambre.concat(onepension);
-
-
-        console.log(result);
-
-        switch (JSON.stringify(result[0])) {
-
-            case JSON.stringify(branche.ch_simple_vue_int):
-                document.querySelector(`#one_room${index}`).value = `3,${result[1]}`
-                break;
-
-            case JSON.stringify(branche.ch_simple_vue_ext):
-                document.querySelector(`#one_room${index}`).value = `4,${result[1]}`
-                break;
-
-            case JSON.stringify(branche.ch_double_lit_double_int):
-                document.querySelector(`#one_room${index}`).value = `5,${result[1]}`
-                break;
-
-            case JSON.stringify(branche.ch_double_lit_double_ext):
-                document.querySelector(`#one_room${index}`).value = `6,${result[1]}`
-                break;
-
-            case JSON.stringify(branche.ch_double_2lit_int):
-                document.querySelector(`#one_room${index}`).value = `7,${result[1]}`
-                break;
-
-            default:
-                console.log("please fill in the blanks")
-
-
-        }
-    })
-})
 
 let addAppartement = true
 let removeAppartement = true
@@ -278,12 +217,12 @@ appartsCount.innerHTML = `${k}`
 
 addAppr.addEventListener('click', function() {if(k<4) {
     appartsCount.innerHTML = `${++k}`
-    newAppartement.innerHTML += `<input type="hidden" id="apprt${k}" name="one_apprt${k}" value="1">`
+    newAppartement.innerHTML += `<input type="hidden" id="apprt${k}" name="batiment[]" value="1">`
 }})
 dellAppr.addEventListener('click', ()=> {
     if(k>0) {
-    // document.getElementById(`one_apprt${k}`).outerHTML = ""
-    // document.getElementById(`one_apprt${k}`).remove()
+    // document.getElementById(`apprt${k}`).outerHTML = ""
+    // document.getElementById(`apprt${k}`).remove()
     newAppartement.removeChild(newAppartement.childNodes[0])
     appartsCount.innerHTML = `${--k}`
 }})
@@ -301,7 +240,7 @@ bangCount.innerHTML = `${l}`
 addBang.addEventListener('click', function() {
     if(l<4) {
     bangCount.innerHTML = `${++l}`
-    newBungalow.innerHTML += `<input type="hidden" id="bung${l}" name="one_bung${l}" value="2">`
+    newBungalow.innerHTML += `<input type="hidden" id="bung${l}" name="batiment[]"  value="2">`
 }})
 dellBang.addEventListener('click', ()=> {
     newBungalow.removeChild(newBungalow.childNodes[0])

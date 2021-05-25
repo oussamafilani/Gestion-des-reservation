@@ -48,6 +48,50 @@
     </div>
   </header>
 
+  <!-- card section -->
+  <section class="about-cards-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 card-wrapper">
+          <div class="card border-0">
+            <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+              <img class="w-100 h-100" src="https://source.unsplash.com/910x592" alt="Card image cap">
+            </div>
+            <div class="card-body text-center mt-4">
+              <h3 class="text-uppercase card-title">Our APPRTEMENTS</h3>
+              <p class="card-text">A short caption detailing an aspect of the brand which is worth mentioning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 card-wrapper">
+          <div class="card border-0">
+            <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+              <img class="w-100 h-100" src="https://source.unsplash.com/1230x802" alt="Card image cap">
+            </div>
+            <div class="card-body text-center mt-4">
+              <h3 class="text-uppercase card-title">Our ROOMS</h3>
+              <p class="card-text">A short caption detailing an aspect of the brand which is worth mentioning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 card-wrapper">
+          <div class="card border-0">
+            <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+              <img class="w-100 h-100" src="https://source.unsplash.com/1230x794" alt="Card image cap">
+            </div>
+            <div class="card-body text-center mt-4">
+              <h3 class="text-uppercase card-title">Our BUNGALOW</h3>
+              <p class="card-text">A short caption detailing an aspect of the brand which is worth mentioning.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- card section -->
   <!-- footer -->
 
   <?php include_once '../includes/footer.include.php'; ?>

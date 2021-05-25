@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2021 at 08:46 PM
+-- Generation Time: May 14, 2021 at 09:14 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id_admin` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `nom_admin` varchar(25) NOT NULL,
-  `prenom_admin` varchar(25)  NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  `nom_admin` varchar(25) COLLATE utf8_bin NOT NULL,
+  `prenom_admin` varchar(25) COLLATE utf8_bin NOT NULL,
   `fk_user` int(11) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `admin`
@@ -48,32 +48,32 @@ INSERT INTO `admin` (`id_admin`, `nom_admin`, `prenom_admin`, `fk_user`) VALUES
 --
 
 CREATE TABLE `bien` (
-  `id_Bien` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `nom_bien` varchar(25)  NOT NULL,
-  `type_chambre` varchar(25)  DEFAULT NULL,
-  `vue_bien` varchar(25)  DEFAULT NULL,
-  `lit_chambre` varchar(25) DEFAULT NULL,
-  `categorie_age` varchar(25)  DEFAULT NULL,
+  `id_Bien` int(11) NOT NULL,
+  `nom_bien` varchar(25) COLLATE utf8_bin NOT NULL,
+  `type_chambre` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `vue_bien` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `lit_chambre` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `categorie_age` varchar(25) COLLATE utf8_bin DEFAULT NULL,
   `prix_bien` int(11) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `bien`
 --
 
 INSERT INTO `bien` (`id_Bien`, `nom_bien`, `type_chambre`, `vue_bien`, `lit_chambre`, `categorie_age`, `prix_bien`) VALUES
-(1, 'appartement', NULL, NULL, NULL, 'Adult', 550),
-(2, 'bungalow', NULL, NULL, NULL, 'Adult', 800),
-(3, 'chambre', 'chambre simple', 'vue interieur', NULL, 'Adult', 300),
-(4, 'chambre', 'chambre simple', 'vue exterieur', NULL, 'Adult', 360),
-(5, 'chambre', 'chambre double', 'vue interieur', 'lit double', 'Adult', 450),
-(6, 'chambre', 'chambre double', 'vue exterieur', 'lit double', 'Adult', 540),
-(7, 'chambre', 'chambre double', 'vue interieur', 'deux lits simple', 'Adult', 450),
+(1, 'appartement', NULL, NULL, NULL, NULL, 550),
+(2, 'bungalow', NULL, NULL, NULL, NULL, 800),
+(3, 'chambre', 'chambre_simple', 'vue_intern', NULL, NULL, 300),
+(4, 'chambre', 'chambre_simple', 'vue_extern', NULL, NULL, 360),
+(5, 'chambre', 'chambre_double', 'vue_intern', 'lit_double', NULL, 450),
+(6, 'chambre', 'chambre_double', 'vue_extern', 'lit_double', NULL, 540),
+(7, 'chambre', 'chambre_double', 'vue_intern', 'deux_lit_simple', NULL, 450),
 (8, 'supplement lit', NULL, NULL, NULL, 'Baby', 75),
 (9, 'pas supplement lit', NULL, NULL, NULL, 'Baby', 0),
-(10, '50% chambre', 'chambre simple', 'vue interieur', NULL, 'Mineur', 150),
-(11, '70% chambre', 'chambre simple', 'vue interieur', NULL, 'Jeune', 210),
-(12, 'chambre', 'chambre simple', 'vue interieur', NULL, 'Jeune', 300);
+(10, '50% chambre', 'chambre_simple', 'vue_intern', NULL, 'Mineur', 150),
+(11, '70% chambre', 'chambre_simple', 'vue_intern', NULL, 'Jeune', 210),
+(12, 'chambre', 'chambre_simple', 'vue_intern', NULL, 'Jeune', 300);
 
 -- --------------------------------------------------------
 
@@ -82,12 +82,12 @@ INSERT INTO `bien` (`id_Bien`, `nom_bien`, `type_chambre`, `vue_bien`, `lit_cham
 --
 
 CREATE TABLE `client` (
-  `id_client` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `nom_client` varchar(25)  NOT NULL,
-  `prenom_client` varchar(25) NOT NULL,
-  `phone_client` varchar(30) DEFAULT NULL,
+  `id_client` int(11) NOT NULL,
+  `nom_client` varchar(25) COLLATE utf8_bin NOT NULL,
+  `prenom_client` varchar(25) COLLATE utf8_bin NOT NULL,
+  `phone_client` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   `fk_user` int(11) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `client`
@@ -101,7 +101,11 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `phone_client`
 (5, 'farouk', 'farouk', '0655442211', 7),
 (6, 'steve', 'steve', '0655442211', 8),
 (7, 'sara', 'sara', '0655442211', 9),
-(8, 'fadoua', 'fadoua', '0655442211', 10);
+(8, 'fadoua', 'fadoua', '0655442211', 10),
+(12, 'oussama', 'filani', '0618340021', 37),
+(13, 'yassine', 'test', '000000021', 38),
+(14, 'Malika', 'Malika', '090500000', 39),
+(15, 'Omaaar', 'Ahmeeed', '061500000', 40);
 
 -- --------------------------------------------------------
 
@@ -110,11 +114,11 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `phone_client`
 --
 
 CREATE TABLE `panier` (
-  `id_panier` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_panier` int(11) NOT NULL,
   `fk_bien` int(11) NOT NULL,
   `fk_pension` int(11) NOT NULL,
   `fk_reservation` int(11) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -123,10 +127,10 @@ CREATE TABLE `panier` (
 --
 
 CREATE TABLE `pension` (
-  `id_pension` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_pension` int(11) NOT NULL,
   `prix_pension` int(11) NOT NULL,
-  `type_pension` varchar(25) NOT NULL
-);
+  `type_pension` varchar(25) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `pension`
@@ -134,9 +138,8 @@ CREATE TABLE `pension` (
 
 INSERT INTO `pension` (`id_pension`, `prix_pension`, `type_pension`) VALUES
 (1, 200, 'complete'),
-(2, 150, 'demi1'),
-(3, 140, 'demi2'),
-(4, 0, 'sans');
+(2, 150, 'demi'),
+(3, 0, 'sans');
 
 -- --------------------------------------------------------
 
@@ -145,12 +148,12 @@ INSERT INTO `pension` (`id_pension`, `prix_pension`, `type_pension`) VALUES
 --
 
 CREATE TABLE `reservation` (
-  `id_reservation` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_reservation` int(11) NOT NULL,
   `date_reservation` date NOT NULL,
   `debut_sejour` date NOT NULL,
   `fin_sejour` date NOT NULL,
   `fk_client` int(11) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -159,63 +162,140 @@ CREATE TABLE `reservation` (
 --
 
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `login` varchar(50)  NOT NULL,
-  `password` varchar(50)  NOT NULL,
-  `access` tinyint(1) NOT NULL
-);
+  `id_user` int(11) NOT NULL,
+  `login` varchar(50) COLLATE utf8_bin NOT NULL,
+  `password` char(60) COLLATE utf8_bin NOT NULL,
+  `access` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `access`) VALUES
-(1, 'oussama@gmail.com', '202cb962ac59075b964b07152d234b70', 1),
-(3, 'hassan@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(4, 'ali@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(5, 'salhi@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(6, 'ilyas@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(7, 'farouk@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(8, 'steve@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(9, 'sara@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(10, 'fadoua@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(11, 'mariam@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(13, 'chafik@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(14, 'khadija@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(15, 'sir@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(16, 'jilali@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(17, 'khalid@gmail.com', '202cb962ac59075b964b07152d234b70', 0),
-(18, 'azzouz@gmail.com', '202cb962ac59075b964b07152d234b70', 0);
+(1, 'oussama@gmail.com', '$2y$10$NofyYwYDj424JLy7tzNVWudzcH0QAL6RG4aOg/JI41sdcRpEA2a72', 'Admin'),
+(3, 'hamza@gmail.com', '$2y$10$ucWh6NMCVfwjJWeOLDVxjOt4JyZNelSdt5uvsljxQl9ryp4uKbXpa', 'Client'),
+(4, 'ali@gmail.com', '$2y$10$xZsOx18h2AZp2P8xLzSMoOBfJxGGNhjcEHacMVvwXAJyqHn313CES', 'Client'),
+(5, 'salhi@gmail.com', '$2y$10$7bkpeo2ICCNRtAwqxhKgK.szCJTHJHphkXRNx3lOCeUUNoU0jx0QW', 'Client'),
+(6, 'ilyas@gmail.com', '$2y$10$MZMZqQH3SsmAVDQmBKERou5lLz2BZp.zycHj77NYacChS1DvtQt6G', 'Client'),
+(7, 'farouk@gmail.com', '$2y$10$ZhTpcBveiJvCWdhFktF1fOdkC4McC8iZXNep1irpAWWj8daKCogS2', 'Client'),
+(8, 'steve@gmail.com', '$2y$10$LfGFP66nw/8tmyuLx6dvU.NF4Bt/iVbRBRPvOifD5YWF67QRGeQc.', 'Client'),
+(9, 'sara@gmail.com', '$2y$10$0bRWbL9/rWvpOfqS6W92veCoqXZUk/dfFKZ9ak6M0cCvE/R4Xxd3e', 'Client'),
+(10, 'fadoua@gmail.com', '$2y$10$izmU/e5IrDCC9hetIHrtkuFuNzbLwmP4juxA6cvVF6TsCIXZEdV8W', 'Client'),
+(11, 'mariam@gmail.com', '$2y$10$HU4Unt5TmhNHQhVQWHXCK.oxstikPSNvoZaxh6vnnp39YJPlQG6X6', 'Client'),
+(13, 'chafik@gmail.com', '$2y$10$1Bg9JjNyQvkC7Y3eytHy9e.WaZZtwj/2.MgRFk5Gl.UH6FX9Z51lu', 'Client'),
+(14, 'khadija@gmail.com', '$2y$10$5l5DmaAKVmsC4jtz0YII6OB9FRvff2aEJCicIiE5qpzpjCeJFAK9i', 'Client'),
+(15, 'sir@gmail.com', '$2y$10$wW9uRdEcXuyRyFDtvPDBLO/qHRKFtK67WhYfeVJ2AHbhN3vS0tfoK', 'Client'),
+(16, 'jilali@gmail.com', '$2y$10$kE9u5SkTfkjqoQ0sPM921ehbE2HZN6XE4lqgKK3bQJvCTniRZg4jy', 'Client'),
+(17, 'khalid@gmail.com', '$2y$10$L.8jQl4DYyLP0ZbMrOgI4u34M6N4qJfUEipfrkc1pBV1m4sgOPWja', 'Client'),
+(18, 'azzouz@gmail.com', '$2y$10$WdFZw3qwOA3z4DZ5sueB5uiGXSZGb3c7EKBKX/jCYtdiNLypq4IwK', 'Client'),
+(37, 'oussamafilani10@gmail.com', '$2y$10$Z4kyILYXjPh0EsJjBWi7Q.TqeOqvpa7zn9.afxNXlEXrdxeIzTetO', 'Client'),
+(38, 'yassineani10@gmail.com', '$2y$10$FYhATZHXkyEjI7RwkeQt9.ysUQbSzQIyck.fMV5BwmTqHVnpzG3IK', 'Client'),
+(39, 'malika@gmail.com', '$2y$10$4viUVptmjbzS2K38spzgceQ0GRXgCtQDUfqBcOwAu5SIEx8yRulE.', 'Client'),
+(40, 'omarahmed@gmail.com', '$2y$10$tfKpj6aC4rbeZJ6B2TokKOR4LwLqJ.5IKgBmUUNawVV2zLN4djnRK', 'Client');
 
 --
 -- Indexes for dumped tables
 --
--- --------------------------------------------------------
 
 --
--- Structure de la table `enfant`
+-- Indexes for table `admin`
 --
-
-CREATE TABLE `enfant` (
-  `id_enfant` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `option_enfant` varchar(25) ,
-  `pourcentage_prix` int(11) NOT NULL
-);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`),
+  ADD KEY `FK_adm` (`fk_user`);
 
 --
--- Déchargement des données de la table `enfant`
+-- Indexes for table `bien`
+--
+ALTER TABLE `bien`
+  ADD PRIMARY KEY (`id_Bien`);
+
+--
+-- Indexes for table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`id_client`),
+  ADD KEY `FK_cli` (`fk_user`);
+
+--
+-- Indexes for table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`id_panier`),
+  ADD KEY `FK_bien_pa` (`fk_bien`),
+  ADD KEY `FK_pension_pa` (`fk_pension`),
+  ADD KEY `FK_reservation_pa` (`fk_reservation`);
+
+--
+-- Indexes for table `pension`
+--
+ALTER TABLE `pension`
+  ADD PRIMARY KEY (`id_pension`);
+
+--
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`id_reservation`),
+  ADD KEY `FK_cle_reserv` (`fk_client`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `email` (`login`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
-INSERT INTO `enfant` (`id_enfant`, `option_enfant`, `pourcentage_prix`) VALUES
-(1, 'option1', 25),
-(2, 'option2', 0),
-(3, 'option3', 50),
-(4, 'option4', 100),
-(5, 'option5', 70),
-(6, 'sans', 0);
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
--- --------------------------------------------------------
+--
+-- AUTO_INCREMENT for table `bien`
+--
+ALTER TABLE `bien`
+  MODIFY `id_Bien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
+--
+-- AUTO_INCREMENT for table `client`
+--
+ALTER TABLE `client`
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `panier`
+--
+ALTER TABLE `panier`
+  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
+-- AUTO_INCREMENT for table `pension`
+--
+ALTER TABLE `pension`
+  MODIFY `id_pension` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `id_reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- Constraints for dumped tables
+--
 
 --
 -- Constraints for table `admin`

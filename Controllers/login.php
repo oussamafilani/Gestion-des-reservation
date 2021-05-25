@@ -1,16 +1,15 @@
 <?php
 
 
-include_once 'regex.php';
+// include_once 'regex.php';
 include '../Models/user_model.php';
-
-
-$login = new User_model();
 
 if (isset($_POST['login'])) {
 
     $email = trim($_POST['user']);
     $password = $_POST['pass'];
+
+    $login = new User_model();
     $user = $login->Autonfication($email, $password);
 
     // if (!preg_match(RG_PASSWORD, $password)) {

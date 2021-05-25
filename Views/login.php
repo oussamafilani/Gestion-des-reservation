@@ -18,7 +18,7 @@
     }
   </script>
 
-  <title>Bootstrap 5 Login Form</title>
+  <title>Login Form</title>
   <style>
     body {
       padding: 0;
@@ -79,7 +79,7 @@
       // Password123@
 
       ?>
-      <form class="w-75" action="" method="post">
+      <form class="w-75" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
         <div class="mb-3">
           <label for="" class="form-label">Username</label>
           <input type="email" class="form-control" name="user" id="" placeholder="email" required />
