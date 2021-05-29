@@ -11,7 +11,7 @@
   <script>
     function ErrPasswrdEmail() {
       swal({
-        title: "Oops...",
+        title: "Password or email incorrect",
         text: "l'email ou le mot de passe n'est pas correct",
         icon: "error",
       });
@@ -82,11 +82,11 @@
       <form class="w-75" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
         <div class="mb-3">
           <label for="" class="form-label">Username</label>
-          <input type="email" class="form-control" name="user" id="" placeholder="email" required />
+          <input type="email" class="form-control" name="user" id="" placeholder="email" />
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Password</label>
-          <input type="password" class="form-control" name="pass" id="" placeholder="password" required />
+          <input type="password" class="form-control" name="pass" id="" placeholder="password" />
         </div>
         <!-- <div class="row">
           <div class="col-md-6">

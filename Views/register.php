@@ -7,6 +7,17 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function FillFields() {
+            swal({
+                title: "please fill all fields correctly",
+                // text: "l'email ou le mot de passe n'est pas correct",
+                icon: "error",
+            });
+        }
+    </script>
+
     <title>Login Form</title>
     <style>
         body {
@@ -76,22 +87,22 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">First Name</label>
-                        <input type="text" class="form-control" name="fname" id="" placeholder="First Name" required />
+                        <input type="text" class="form-control" name="fname" id="" placeholder="First Name" />
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" name="lname" id="" placeholder="Last Name" required />
+                        <input type="text" class="form-control" name="lname" id="" placeholder="Last Name" />
                     </div>
                 </div>
 
 
                 <div class="mb-3">
                     <label for="" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="user" id="" placeholder="Email" required />
+                    <input type="email" class="form-control" name="user" id="" placeholder="Email" />
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="pass" id="" placeholder="Password" required />
+                    <input type="password" class="form-control" name="pass" id="" placeholder="Password" />
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Phone Number</label>

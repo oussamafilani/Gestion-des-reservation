@@ -1,4 +1,8 @@
 <?php
+if (session_id() == '') {
+    //session has not started
+    session_start();
+}
 include '../Models/reservation_model.php';
 
 $reservation = new Reservation_model();
@@ -24,3 +28,10 @@ if (isset($_POST['reserver'])) {
 }
 
 $rows = $reservation->fetchReservation();
+
+
+$idres = $_REQUEST['id'] ?? 100000;
+if (!empty($idres)) {
+    $res_row = $reservation->fetch_single($idres);
+    $total = $reservation->CalculPrix($idres);
+}

@@ -13,11 +13,12 @@
                     <a class="nav-link js-scroll-trigger" href="#services">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Contact Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                </li>
+
+                <form class="form-inline my-2 my-lg-0" action="../Views/login.php">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">login</button>
+                </form>
                 <!-- <li class="nav-item">
             <button type="button" id="" class="btn  btn-primary">login</button>
           </li> -->

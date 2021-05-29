@@ -1,30 +1,5 @@
 <?php
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 include 'connect.php';
 
 class Reservation_model extends connect
@@ -110,6 +85,23 @@ class Reservation_model extends connect
         return $data;
     }
 
+    public function fetch_single($id)
+    {
+        $data = null;
+
+        $query = "SELECT * FROM reservation INNER JOIN client ON reservation.fk_client = client.id_client  and reservation.id_reservation =  :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(':id',  $id, PDO::PARAM_INT);
+        $stmt->execute();
+        if ($stmt) {
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        }
+    }
+
+
+
+
     public function delete($id)
     {
 
@@ -123,12 +115,21 @@ class Reservation_model extends connect
         }
     }
 
-    public function CalculPrix()
+    public function CalculPrix($id)
     {
         $query = "SELECT SUM(b.prix_bien) * DATEDIFF(r.fin_sejour,r.debut_sejour) as total FROM panier p, reservation r,bien b where r.id_reservation =p.fk_reservation AND b.id_Bien = p.fk_bien AND p.fk_reservation = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->execute([$GLOBALS['LastIdRes']]);
+        $stmt->execute([$id]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row['total'];
+        return $row;
     }
+
+    // public function CalculPrix()
+    // {
+    //     $query = "SELECT SUM(b.prix_bien) * DATEDIFF(r.fin_sejour,r.debut_sejour) as total FROM panier p, reservation r,bien b where r.id_reservation =p.fk_reservation AND b.id_Bien = p.fk_bien AND p.fk_reservation = ?";
+    //     $stmt = $this->conn->prepare($query);
+    //     $stmt->execute([$GLOBALS['LastIdRes']]);
+    //     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     return $row['total'];
+    // }
 }
