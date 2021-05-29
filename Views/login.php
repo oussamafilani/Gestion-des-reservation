@@ -91,7 +91,7 @@
         <!-- <div class="row">
           <div class="col-md-6">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <input class="form-check-inp ut" type="checkbox" value="" id="flexCheckDefault" />
               <label class="form-check-label" for="flexCheckDefault">
                 Keep me logged in
               </label>

@@ -1,10 +1,29 @@
 <?php
 
-if (session_id() == '') {
-    //session has not started
-    session_start();
-    error_reporting(0);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 include 'connect.php';
 
