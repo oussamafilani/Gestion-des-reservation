@@ -37,6 +37,18 @@ class User_model extends connect
         }
     }
 
+    public function CheckEmail($email)
+    {
+        $stmt  = $this->conn->prepare("SELECT * FROM user WHERE login = :email");
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $RowCount = $stmt->rowCount();
+        return  $RowCount;
+    }
+
+
+
+
 
     public function Register($email, $password, $access, $fname, $lname, $phone)
     {

@@ -9,9 +9,17 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        function FillFields() {
+        function FillFields(str) {
             swal({
-                title: "please fill all fields correctly",
+                title: "invalid " + str,
+                text: "please fill all fields correctly",
+                icon: "error",
+            });
+        }
+
+        function EmailCheck() {
+            swal({
+                title: "email already exists in the system ",
                 // text: "l'email ou le mot de passe n'est pas correct",
                 icon: "error",
             });
