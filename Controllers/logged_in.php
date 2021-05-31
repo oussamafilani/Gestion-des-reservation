@@ -10,7 +10,9 @@ if (session_id()) {
 
     if ($_SESSION['access'] == "Admin") {
         header("Location: admin.php");
+        die();
     } else if ($_SESSION['access'] == "Client") {
         header("Location: reservation.php");
+        die();
     }
 }
