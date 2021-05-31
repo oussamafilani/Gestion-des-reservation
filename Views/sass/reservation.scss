@@ -1,12 +1,11 @@
 
-body {
-    background-color: #242124;
+
+.card-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
 
 .card {
     margin: 10% auto;
@@ -93,6 +92,11 @@ color: black;
           filter: brightness(0.9);
         }
       }
+
+.date-lb::before{
+
+    font-family: "Font Awesome 5 Free"; font-weight: 400; content: "\f073";
+}      
     
 .ico {
     border: none;

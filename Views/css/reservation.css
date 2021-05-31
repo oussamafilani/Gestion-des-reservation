@@ -1,5 +1,5 @@
-body {
-  background-color: #242124;
+@charset "UTF-8";
+.card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,6 +73,12 @@ input:focus {
 }
 .fas:hover, .fas:focus {
   filter: brightness(0.9);
+}
+
+.date-lb::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "";
 }
 
 .ico {
