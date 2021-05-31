@@ -81,12 +81,12 @@ include '../Controllers/client_role.php';
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="date-lb mb-1"> Date de Arrivée</label>
-                            <input type="date" value="" name="date_d" class="form-control mb-4">
+                            <input type="date" value="" name="date_d" min="2021-07-01" class="form-control mb-4">
                         </div>
 
                         <div class="col-sm-6">
                             <label class="date-lb mb-1"> Date de Départ</label>
-                            <input type="date" value="" name="date_f" class="form-control mb-4">
+                            <input type="date" value="" name="date_f" min="2022-01-01" class="form-control mb-4">
                         </div>
                         <input type="hidden" id="rooms_number" name="nb_rm" value="">
 

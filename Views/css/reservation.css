@@ -8,6 +8,11 @@
   background-color: #f4623a;
   border-color: #f4623a;
 }
+.btn-outline-primary:focus {
+  color: #fff;
+  background-color: #f4623a;
+  border-color: #f4623a;
+}
 
 .btn-primary {
   color: #fff;

@@ -42,10 +42,7 @@ include '../Controllers/admin_role.php';
                         <a class="nav-link js-scroll-trigger" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a>
                     </li>
                     <!-- <li class="nav-item">
             <button type="button" id="" class="btn  btn-primary">login</button>

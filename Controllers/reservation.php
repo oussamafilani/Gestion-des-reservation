@@ -5,7 +5,7 @@ if (session_id() == '') {
 }
 
 
-// error_reporting(0);
+error_reporting(0);
 
 include '../Models/reservation_model.php';
 
