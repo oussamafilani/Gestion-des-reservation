@@ -1,3 +1,6 @@
+<?php
+include '../Controllers/logged_in.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

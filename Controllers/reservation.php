@@ -4,6 +4,7 @@ if (session_id() == '') {
     session_start();
 }
 
+
 // error_reporting(0);
 
 include '../Models/reservation_model.php';
