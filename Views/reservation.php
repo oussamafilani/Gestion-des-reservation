@@ -151,7 +151,7 @@ include '../Controllers/client_role.php';
                     </div>
 
                     <div class="col-md-12 text-center">
-                        <button type="submit" id="reserve" name="reserver" class="btn btn-secondary  mt-5">Reserver</button>
+                        <button type="submit" id="reserve" name="reserver" class="btn btn-primary  mt-5">Reserver</button>
                     </div>
                 </form>
             </div>

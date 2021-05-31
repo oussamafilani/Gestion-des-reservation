@@ -1,4 +1,25 @@
 @charset "UTF-8";
+.btn-outline-primary {
+  color: #f4623a;
+  border-color: #f4623a;
+}
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #f4623a;
+  border-color: #f4623a;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #f4623a;
+  border-color: #f4623a;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #f24516;
+  border-color: #ee3e0d;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
