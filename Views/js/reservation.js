@@ -1,5 +1,3 @@
-'use strict'
-
 const chambre_type = document.querySelector('.add-bien')
 
 const dellchambre = document.querySelector('.dell-chambre')

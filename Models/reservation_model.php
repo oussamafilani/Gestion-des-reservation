@@ -99,9 +99,6 @@ class Reservation_model extends connect
         }
     }
 
-
-
-
     public function delete($id)
     {
 

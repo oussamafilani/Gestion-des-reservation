@@ -16,8 +16,6 @@ if (isset($_POST['login'])) {
         echo "<script>ErrPasswrdEmail();</script>";
     }
 
-
-
     if ($bol) {
         $user = $login->Autonfication($email, $password);
 
